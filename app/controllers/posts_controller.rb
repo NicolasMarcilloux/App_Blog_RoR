@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :load_user, except: [:index]
+  before_action :load_user
 	before_action :load_post, only: [:show, :edit, :update, :destroy]
 
 	def index
@@ -11,11 +11,13 @@ class PostsController < ApplicationController
 	end
 
 	def load_post
-		@post = post.find params[:id]
+		@post = Post.find params[:id]
 	end
 
 	def load_user
-		@user = User.find params[:author_id]
+    if params[:user_id].present?
+  		@user = User.find params[:user_id]
+    end
 	end
 
 	def edit

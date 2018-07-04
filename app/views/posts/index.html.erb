@@ -8,15 +8,30 @@
 
 <ul>
 <%-@posts.each do |post| link_to %>
+
+<% if @user.present? %>
+	<%= link_to user_post_path(@user, post) do %>
+		<li>
+			<%= post.title %>
+			<ul>
+				<li><img src="<%= post.thumbnail.thumb.url %>"></img></li>
+				<li><%= post.author_id %></li>
+			</ul>
+		</li>
+	<% end %>
+
+<% else %>
 		<%= link_to post_path(post) do %>
 			<li>
-			<%= post.title %>
+				<%= post.title %>
 				<ul>
-					<li><img src="<%= post.thumbnail %>"></img></li>
+					<li><img src="<%= post.thumbnail.thumb.url %>"></img></li>
 					<li><%= post.author_id %></li>
 				</ul>
 			</li>
 		<% end %>
+	<% end %>
 	<br/>
 <% end %>
+
 </ul>

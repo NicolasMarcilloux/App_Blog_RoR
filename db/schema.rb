@@ -13,13 +13,19 @@
 
 ActiveRecord::Schema.define(version: 20180704143312) do
 
-# Could not dump table "posts" because of following NoMethodError
-#   undefined method `[]' for nil:NilClass
+  create_table "posts", force: true do |t|
+    t.string   "title"
+    t.date     "publication_date"
+    t.string   "header"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "author_id"
+    t.string   "thumbnail"
+  end
 
   create_table "users", force: true do |t|
     t.string   "first_name"
     t.string   "last_name"
-    t.date     "birthdate"
     t.string   "email"
     t.datetime "created_at"
     t.datetime "updated_at"

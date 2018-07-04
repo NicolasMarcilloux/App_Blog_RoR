@@ -1,14 +1,20 @@
-<%= link_to 'Back to user', [@user], class:"btn btn-primary" %>
+<% if @user.present? %>
+	<%= link_to 'Back to user', [@user], class:"btn btn-primary" %>
+<% end %>
 <br/>
 <%= @post.title %>
 <ul>
-	<li><img src="<%= @post.thumbnail %>"></img></li>
+	<li><img src="<%= @post.thumbnail.thumb.url %>"></img></li>
 	<li><%= @post.author_id %></li>
 </ul>
-<%= link_to 'Edit', edit_user_post_path, class:"btn btn-warning" %>
-<%= link_to 'Delete', delete_user_post_path, data:{confirm:"Are you sure ?"}, class:"btn btn-danger" %>
 
+<% if @user.present? %>
+	<%= link_to 'Edit', edit_user_post_path, class:"btn btn-warning" %>
+	<%= link_to 'Delete', user_post_path, method: :delete, data:{confirm:"Are you sure ?"}, class:"btn btn-danger" %>
 
-<h3>User</h3>
-
-<%= @user.first_name %> <%= @user.last_name %>
+	<h3>User</h3>
+	<%= @user.first_name %> <%= @user.last_name %>
+<% else %>
+	<%= link_to 'Edit', edit_post_path, class:"btn btn-warning" %>
+	<%= link_to 'Delete', post_path, method: :delete, data:{confirm:"Are you sure ?"}, class:"btn btn-danger" %>
+<% end %>

@@ -1,6 +1,6 @@
 class AddAuthorIdAndThumbnailToPosts < ActiveRecord::Migration
   def change
-    add_column :posts, :integer, :author_id
-    add_column :posts, :file, :thumbnail
+    add_column :posts, :author_id, :integer
+    add_column :posts, :thumbnail, :string
   end
 end
