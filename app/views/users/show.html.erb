@@ -1,0 +1,24 @@
+<%= link_to "All users", :users, class:"btn btn-primary"%>
+<br/>
+<%= @user.full_name %>
+<ul>
+	<li><%= @user.email %></li>
+</ul>
+
+
+<h3>Posts</h3>
+
+<ul>
+<% @user.posts.each do |p| %>
+	<li>
+
+		<%= link_to [@user, p] do %>
+			<%= p.title %>
+		<% end %>
+	</li>
+<% end %>
+</ul>
+
+<%= link_to 'Posts', user_posts_path(@user), class:"btn btn-primary" %>
+<%= link_to 'Edit', edit_user_path(@user), class:"btn btn-warning" %>
+<%= link_to 'Delete', delete_user_path(@user), data:{confirm:"Are you sure ?"}, class:"btn btn-danger" %>

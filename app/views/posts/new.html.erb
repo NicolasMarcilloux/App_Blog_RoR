@@ -1,0 +1,9 @@
+<%= form_for [@user, @post] do |f| %>
+	<%= f.label :title %>
+	<%= f.text_field :title %>
+	<%= f.label :header %>
+	<%= f.text_field :header %>
+	<%= f.label :thumbnail %>
+	<%= f.file_field :thumbnail %>
+	<%= f.submit class:"btn btn-primary" %>
+<% end %>

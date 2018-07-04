@@ -4,8 +4,6 @@ class CreatePosts < ActiveRecord::Migration
       t.string :title
       t.date :publication_date
       t.string :header
-      t.string :author_id
-      t.file :thumbnail
 
       t.timestamps
     end

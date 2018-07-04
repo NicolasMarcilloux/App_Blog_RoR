@@ -1,0 +1,14 @@
+<%= link_to 'Back to user', [@user], class:"btn btn-primary" %>
+<br/>
+<%= @post.title %>
+<ul>
+	<li><img src="<%= @post.thumbnail %>"></img></li>
+	<li><%= @post.author_id %></li>
+</ul>
+<%= link_to 'Edit', edit_user_post_path, class:"btn btn-warning" %>
+<%= link_to 'Delete', delete_user_post_path, data:{confirm:"Are you sure ?"}, class:"btn btn-danger" %>
+
+
+<h3>User</h3>
+
+<%= @user.first_name %> <%= @user.last_name %>

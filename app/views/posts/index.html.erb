@@ -1,0 +1,22 @@
+<h2>
+	Post List
+</h2>
+
+<% if @user.present? %>
+	<%= link_to 'Add Post', new_user_post_path(), class: "btn btn-primary" %>
+<% end %>
+
+<ul>
+<%-@posts.each do |post| link_to %>
+		<%= link_to post_path(post) do %>
+			<li>
+			<%= post.title %>
+				<ul>
+					<li><img src="<%= post.thumbnail %>"></img></li>
+					<li><%= post.author_id %></li>
+				</ul>
+			</li>
+		<% end %>
+	<br/>
+<% end %>
+</ul>
