@@ -10,11 +10,12 @@ class UsersController < ApplicationController
 	end
 
 	def show
+    puts "show"
 
 	end
 
 	def edit
-
+    puts "edit"
 	end
 
 	def update
@@ -30,6 +31,7 @@ class UsersController < ApplicationController
 	end
 
 	def destroy
+    puts "destroy"
 		@user.destroy
 		if @user.save
 			redirect_to @user
