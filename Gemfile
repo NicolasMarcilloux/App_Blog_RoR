@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'faker'
-
+gem 'devise'
 gem 'carrierwave'
 gem 'rmagick'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
