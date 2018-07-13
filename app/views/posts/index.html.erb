@@ -6,6 +6,12 @@
 	<%= link_to 'Add Post', new_user_post_path(), class: "btn btn-primary" %>
 <% end %>
 
+<% if user_signed_in? %>
+  <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
+<% else %>
+  <%= link_to('Login', new_user_session_path)  %>
+<% end %>
+
 <ul>
 <%-@posts.each do |post| link_to %>
 

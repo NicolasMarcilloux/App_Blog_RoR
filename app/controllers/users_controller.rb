@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!
   before_action :load_user, only: [:show, :edit, :update, :destroy]
 
   def load_user
@@ -10,12 +11,11 @@ class UsersController < ApplicationController
 	end
 
 	def show
-    puts "show"
 
 	end
 
 	def edit
-    puts "edit"
+
 	end
 
 	def update
